@@ -24,7 +24,7 @@ GameObject:
   - 92: {fileID: 92000011881196638}
   - 81: {fileID: 81000012421367872}
   - 114: {fileID: 114000012017757102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012479579984}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,9 +58,10 @@ GameObject:
   - 136: {fileID: 136000010556589478}
   - 23: {fileID: 23000011541741738}
   - 54: {fileID: 54000011624595326}
-  m_Layer: 0
+  - 114: {fileID: 114000011427945330}
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +77,7 @@ GameObject:
   - 33: {fileID: 33000013605004644}
   - 65: {fileID: 65000013527579848}
   - 23: {fileID: 23000012887010532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012097503848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -285,6 +286,19 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010370509234}
   m_Enabled: 1
+--- !u!114 &114000011427945330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012097503848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2e40bcc3fc2ea4ebc934104abeae0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1000013112877364, guid: e3ee9d8c5f6ada241966524eac17ec33, type: 2}
+  spawnPoint: {fileID: 4000012479579984}
 --- !u!114 &114000012017757102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -296,7 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2a5914c285aa44ead78567466269e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 50
+  rotSpeedY: 20
+  rotSpeedX: 40
   yInvert: 0
   minRot: -70
   maxRot: 70
