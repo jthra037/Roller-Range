@@ -24,7 +24,7 @@ GameObject:
   - 92: {fileID: 92000011881196638}
   - 81: {fileID: 81000012421367872}
   - 114: {fileID: 114000012017757102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012479579984}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - 23: {fileID: 23000011541741738}
   - 54: {fileID: 54000011624595326}
   - 114: {fileID: 114000011427945330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - 33: {fileID: 33000013605004644}
   - 65: {fileID: 65000013527579848}
   - 23: {fileID: 23000012887010532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
