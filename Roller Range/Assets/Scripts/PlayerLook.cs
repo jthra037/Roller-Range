@@ -3,7 +3,8 @@ using System.Collections;
 
 public class PlayerLook : MonoBehaviour {
 
-    public float rotSpeed = 5;
+    public float rotSpeedY = 5;
+	public float rotSpeedX = 10;
     public bool yInvert = false;
     public float minRot;
     public float maxRot;
@@ -11,10 +12,10 @@ public class PlayerLook : MonoBehaviour {
     void Update()
     {
         if (yInvert)
-            transform.Rotate(Mathf.Clamp((Input.GetAxis("Mouse Y") * rotSpeed * Time.deltaTime), minRot, maxRot), 0, 0, Space.Self);
+            transform.Rotate(Mathf.Clamp((Input.GetAxis("Mouse Y") * rotSpeedY * Time.deltaTime), minRot, maxRot), 0, 0, Space.Self);
         else
-            transform.Rotate(Mathf.Clamp((Input.GetAxis("Mouse Y") * -rotSpeed * Time.deltaTime), minRot, maxRot), 0, 0, Space.Self);
+            transform.Rotate(Mathf.Clamp((Input.GetAxis("Mouse Y") * -rotSpeedY * Time.deltaTime), minRot, maxRot), 0, 0, Space.Self);
 
-        transform.Rotate(0, (Input.GetAxis("Mouse X") * rotSpeed * Time.deltaTime), 0, Space.World);
+        transform.Rotate(0, (Input.GetAxis("Mouse X") * rotSpeedX * Time.deltaTime), 0, Space.World);
     }
 }

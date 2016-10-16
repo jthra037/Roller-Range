@@ -11,4 +11,12 @@ public class BulletBehaviour : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody>();
         rb.AddForce(force * transform.forward, ForceMode.Impulse);
 	}
+
+	void OnCollisionEnter (Collision col)
+	{
+		if (gameObject.CompareTag (col.gameObject.tag)) 
+		{
+			Destroy (gameObject);
+		}
+	}
 }
