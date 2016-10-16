@@ -13,7 +13,7 @@ public class PlayerBehaviour : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire1")) {
 			GameObject thisShot;
 			thisShot = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation) as GameObject;
-			thisShot.tag = gameObject.tag;
+			thisShot.layer
 		}
 	}
 }
