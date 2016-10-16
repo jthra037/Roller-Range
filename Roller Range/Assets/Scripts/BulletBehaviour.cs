@@ -14,7 +14,10 @@ public class BulletBehaviour : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other)
 	{
-        Debug.Log(gameObject.name + "has had a collision with " + other);
-	    Destroy (gameObject);
+        if (!other.CompareTag("Boundary"))
+        {
+            Debug.Log(gameObject.name + "has had a collision with " + other);
+            Destroy(gameObject);
+        }
 	}
 }
