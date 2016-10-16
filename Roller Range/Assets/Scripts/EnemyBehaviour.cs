@@ -11,6 +11,8 @@ public class EnemyBehaviour : MonoBehaviour {
     private Rigidbody rb;
     private Transform target;
     private float distance;
+    private int state = 1;
+
 
 	// Use this for initialization
 	void Start ()
@@ -22,16 +24,26 @@ public class EnemyBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(target); // Face the player
-        distance = Vector3.Distance(transform.position, target.position); // Check the distance
+        switch (state)
+        {
+            case 0:
+                chase();
+                break;
+            default:
+                Debug.Log("Wander isn't implemented yet!");
+                break;
+        }
     }
 
-    void FixedUpdate()
+    void chase()
     {
+        transform.LookAt(target); // Face the player
+        distance = Vector3.Distance(transform.position, target.position); // Check the distance
         if (distance <= attackDistance)
         {
             attack();
-        } else
+        }
+        else
         {
             rb.velocity = transform.forward * speed;
         }

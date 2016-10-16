@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BulletBehaviour : MonoBehaviour {
 
+    public int dmg = 1;
+
     private Rigidbody rb;
     private float force = 100;
 
