@@ -5,7 +5,14 @@ public class PlayerBehaviour : MonoBehaviour {
 
     public GameObject projectile; //linked projectile prefab
     public Transform spawnPoint; //Transform of bullet spawner
-    
+
+    private int layer;
+
+    void Start()
+    {
+        layer = gameObject.layer;
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -13,7 +20,7 @@ public class PlayerBehaviour : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire1")) {
 			GameObject thisShot;
 			thisShot = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation) as GameObject;
-			thisShot.layer
+            thisShot.layer = layer;
 		}
 	}
 }

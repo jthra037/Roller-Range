@@ -12,11 +12,9 @@ public class BulletBehaviour : MonoBehaviour {
         rb.AddForce(force * transform.forward, ForceMode.Impulse);
 	}
 
-	void OnCollisionEnter (Collision col)
+	void OnTriggerEnter (Collider other)
 	{
-		if (gameObject.CompareTag (col.gameObject.tag)) 
-		{
-			Destroy (gameObject);
-		}
+        Debug.Log(gameObject.name + "has had a collision with " + other);
+	    Destroy (gameObject);
 	}
 }
