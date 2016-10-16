@@ -3,8 +3,8 @@ using System.Collections;
 
 public class BulletBehaviour : MonoBehaviour {
 
-    Rigidbody rb;
-    float force = 100;
+    private Rigidbody rb;
+    private float force = 100;
 
 	// Use this for initialization
 	void Start () {
