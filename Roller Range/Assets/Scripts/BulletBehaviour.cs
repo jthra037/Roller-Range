@@ -3,8 +3,10 @@ using System.Collections;
 
 public class BulletBehaviour : MonoBehaviour {
 
-    Rigidbody rb;
-    float force = 100;
+    public int dmg = 1;
+
+    private Rigidbody rb;
+    private float force = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +16,10 @@ public class BulletBehaviour : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other)
 	{
-        Debug.Log(gameObject.name + "has had a collision with " + other);
-	    Destroy (gameObject);
+        if (!other.CompareTag("Boundary"))
+        {
+            Debug.Log(gameObject.name + "has had a collision with " + other);
+            Destroy(gameObject);
+        }
 	}
 }

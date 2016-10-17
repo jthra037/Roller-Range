@@ -23,7 +23,6 @@ GameObject:
   - 124: {fileID: 124000010205310444}
   - 92: {fileID: 92000011881196638}
   - 81: {fileID: 81000012421367872}
-  - 114: {fileID: 114000012017757102}
   m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
@@ -118,10 +117,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010370509234}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
   - {fileID: 4000011375171990}
   m_Father: {fileID: 4000010314413086}
@@ -255,10 +254,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65000013527579848
 BoxCollider:
@@ -299,17 +298,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1000013112877364, guid: e3ee9d8c5f6ada241966524eac17ec33, type: 2}
   spawnPoint: {fileID: 4000012479579984}
---- !u!114 &114000012017757102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010370509234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2a5914c285aa44ead78567466269e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: 15
+  myCamera: {fileID: 4000011950159332}
   rotSpeedY: 20
   rotSpeedX: 40
   yInvert: 0
