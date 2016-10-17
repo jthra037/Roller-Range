@@ -287,25 +287,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011950159332, guid: cf9e7a3e2ff6a1c4186f8b91b68de041, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011950159332, guid: cf9e7a3e2ff6a1c4186f8b91b68de041, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011950159332, guid: cf9e7a3e2ff6a1c4186f8b91b68de041, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011427945330, guid: cf9e7a3e2ff6a1c4186f8b91b68de041,
-        type: 2}
-      propertyPath: rotSpeedX
-      value: 40
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114000012017757102, guid: cf9e7a3e2ff6a1c4186f8b91b68de041, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf9e7a3e2ff6a1c4186f8b91b68de041, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &506216374

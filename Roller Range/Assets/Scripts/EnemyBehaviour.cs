@@ -7,6 +7,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public Collider attackVolume;
     public float attackDistance = 5;
     public float attackForce = 100;
+    public int health = 2;
 
     private Rigidbody rb;
     private Transform target;
@@ -60,6 +61,16 @@ public class EnemyBehaviour : MonoBehaviour {
         {
             Debug.Log("Got 'eem!");
             Destroy(gameObject);
+        } 
+        if (other.CompareTag("Bullet"))
+        {
+            Debug.Log("We been hit!");
+            health = health - other.gameObject.GetComponent<BulletBehaviour>().dmg;
+            if (health <= 0)
+            {
+                Debug.Log("We dead");
+                Destroy(gameObject);
+            }
         }
     }
 }
