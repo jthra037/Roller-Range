@@ -671,7 +671,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 54000012176436082, guid: fa1cd5834da7af04eaaf100d56022fe7,
         type: 2}
-      propertyPath: m_IsKinematic
+      propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1710,11 +1710,6 @@ Prefab:
     - target: {fileID: 4000010856225900, guid: fe1fb09b59e6d374e9de079691d2a562, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 65000013454556904, guid: fe1fb09b59e6d374e9de079691d2a562,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe1fb09b59e6d374e9de079691d2a562, type: 2}

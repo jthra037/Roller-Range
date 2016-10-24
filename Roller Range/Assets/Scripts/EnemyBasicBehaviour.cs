@@ -37,7 +37,6 @@ public class EnemyBasicBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("My state is: " + state);
         switch (state)
         {
             case 0:
@@ -66,7 +65,6 @@ public class EnemyBasicBehaviour : MonoBehaviour {
     void seperation()
     {
         distance = Vector3.Distance(transform.position, target.position); // Check the distance
-        Debug.Log(distance - tolerance + " > " + attackDistance/1.5 + " = " + (distance - tolerance > (attackDistance / 1.5)));
 
         if (distance > attackDistance)
         {
