@@ -16,6 +16,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
 
     private float distance;
     private Rigidbody rb;
+    private NavMeshAgent agent;
     private Transform target;
 
 
@@ -23,6 +24,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
 	void Start ()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform; // Locate the player
 	}
 
@@ -35,6 +37,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
                 chase();
                 break;
             default:
+                agent.destination = transform.position;
                 Debug.Log("Wander isn't implemented yet!");
                 break;
         }
@@ -42,15 +45,11 @@ public class EnemySuicideBehaviour : MonoBehaviour {
 
     void chase()
     {
-        transform.LookAt(target); // Face the player
+        agent.destination = target.position;
         distance = Vector3.Distance(transform.position, target.position); // Check the distance
         if (distance <= attackDistance)
         {
             attack();
-        }
-        else
-        {
-            rb.velocity = transform.forward * speed;
         }
     }
 
