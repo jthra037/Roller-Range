@@ -49,6 +49,5 @@ public class PlayerBehaviour : MonoBehaviour {
     void FixedUpdate()
     {
         rb.velocity = movement;
-        Debug.Log(rb.velocity);
     }
 }

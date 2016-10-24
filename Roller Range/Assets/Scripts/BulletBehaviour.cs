@@ -6,7 +6,7 @@ public class BulletBehaviour : MonoBehaviour {
     public int dmg = 1;
 
     private Rigidbody rb;
-    private float force = 100;
+    private float force = 200;
 
 	// Use this for initialization
 	void Start () {

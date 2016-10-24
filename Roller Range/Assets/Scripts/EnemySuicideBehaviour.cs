@@ -8,12 +8,11 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     public int state = 1;
 
     [SerializeField]
-    private float speed = 10;
-    [SerializeField]
     private float attackDistance = 5;
     [SerializeField]
     private float attackForce = 100;
 
+    //private int layer;
     private float distance;
     private Rigidbody rb;
     private NavMeshAgent agent;
@@ -26,6 +25,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform; // Locate the player
+        //layer = gameObject.layer;
 	}
 
     // Update is called once per frame
