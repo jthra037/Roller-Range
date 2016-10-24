@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyBehaviour : MonoBehaviour {
+public class EnemySuicideBehaviour : MonoBehaviour {
 
-    public float speed = 10;
     public Collider attackVolume;
-    public float attackDistance = 5;
-    public float attackForce = 100;
     public int health = 2;
+    public int state = 1;
 
+    [SerializeField]
+    private float speed = 10;
+    [SerializeField]
+    private float attackDistance = 5;
+    [SerializeField]
+    private float attackForce = 100;
+
+    private float distance;
     private Rigidbody rb;
     private Transform target;
-    private float distance;
-    private int state = 1;
 
 
 	// Use this for initialization
