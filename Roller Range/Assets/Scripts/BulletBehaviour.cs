@@ -6,15 +6,11 @@ public class BulletBehaviour : MonoBehaviour {
     public int dmg = 1;
 
     private Rigidbody rb;
-    private float speed = 50;
-    private float maxDistance = 50;
-    private int layerMask;
     private RaycastHit hit;
 
 	// Use this for initialization
 	void Start ()
     {
-        layerMask = 1 << gameObject.layer;
         rb = gameObject.GetComponent<Rigidbody>();
 
         rb.AddForce(transform.forward * 200, ForceMode.Impulse);
