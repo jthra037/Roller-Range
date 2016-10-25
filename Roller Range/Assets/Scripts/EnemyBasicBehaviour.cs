@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyBasicBehaviour : MonoBehaviour {
 
-   // public Collider attackVolume;
+    // public Collider attackVolume;
     public int health = 1;
     public int state = 0;
 
@@ -68,8 +68,8 @@ public class EnemyBasicBehaviour : MonoBehaviour {
 
         if (distance > attackDistance)
         {
-            state = 0;           
-        } else if (distance - tolerance > (attackDistance/1.5))
+            state = 0;
+        } else if (distance - tolerance > (attackDistance / 1.5))
         {
             agent.destination = target.position;
         } else
@@ -89,6 +89,17 @@ public class EnemyBasicBehaviour : MonoBehaviour {
             thisShot = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation) as GameObject;
             thisShot.layer = layer;
             lastShot = Time.time;
+        }
+    }
+
+    void hit()
+    {
+        Debug.Log("This is hit()");
+        health = health - 1;
+        if (health <= 0)
+        {
+            Debug.Log("We dead");
+            Destroy(gameObject);
         }
     }
 

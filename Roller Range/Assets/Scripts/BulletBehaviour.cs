@@ -8,23 +8,31 @@ public class BulletBehaviour : MonoBehaviour {
     private Rigidbody rb;
     private float speed = 50;
     private float maxDistance = 50;
-    private int layer;
+    private int layerMask;
     private RaycastHit hit;
 
 	// Use this for initialization
 	void Start ()
     {
-        layer = gameObject.layer;
+        layerMask = 1 << gameObject.layer;
         rb = gameObject.GetComponent<Rigidbody>();
+
         rb.AddForce(transform.forward * 200, ForceMode.Impulse);
     }
 
     void FixedUpdate()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, rb.velocity.magnitude))
         {
+            GameObject hitObject = hit.collider.gameObject;
             Debug.Log(gameObject.name + " hit " + hit.collider.name);
-            Destroy(gameObject);
+            Debug.Log(hitObject.tag);
+            if (hitObject.CompareTag("Enemy") || hitObject.CompareTag("Player"))
+            {
+                Debug.Log("Calling Hit");
+                hitObject.SendMessage("hit");
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -33,7 +41,6 @@ public class BulletBehaviour : MonoBehaviour {
 	{
         if (!other.CompareTag("Boundary"))
         {
-            Debug.Log(gameObject.name + "has had a collision with " + other);
             Destroy(gameObject);
         }
 	}

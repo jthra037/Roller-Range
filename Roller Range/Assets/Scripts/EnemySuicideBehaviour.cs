@@ -58,6 +58,17 @@ public class EnemySuicideBehaviour : MonoBehaviour {
         rb.AddForce(transform.forward * attackForce, ForceMode.Impulse);
     }
 
+    void hit()
+    {
+        Debug.Log("This is hit, you reached: " + gameObject.name);
+        health = health - 1;
+        if (health <= 0)
+        {
+            Debug.Log("We dead");
+            Destroy(gameObject);
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -65,7 +76,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
             Debug.Log("Got 'eem!");
             Destroy(gameObject);
         } 
-        if (other.CompareTag("Bullet"))
+        /*if (other.CompareTag("Bullet"))
         {
             Debug.Log("We been hit!");
             health = health - other.gameObject.GetComponent<BulletBehaviour>().dmg;
@@ -74,6 +85,6 @@ public class EnemySuicideBehaviour : MonoBehaviour {
                 Debug.Log("We dead");
                 Destroy(gameObject);
             }
-        }
+        }*/
     }
 }
