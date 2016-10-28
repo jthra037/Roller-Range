@@ -5,6 +5,8 @@ public class BulletBehaviour : MonoBehaviour {
 
     public int dmg = 1;
 
+    public GameObject fuckYou;
+
     private Rigidbody rb;
     private RaycastHit hit;
 
@@ -37,6 +39,7 @@ public class BulletBehaviour : MonoBehaviour {
 	{
         if (!other.CompareTag("Boundary"))
         {
+            Instantiate(fuckYou, transform.position, transform.rotation);
             Destroy(gameObject);
         }
 	}
