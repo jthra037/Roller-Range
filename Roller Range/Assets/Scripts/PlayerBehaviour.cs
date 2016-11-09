@@ -5,9 +5,11 @@ public class PlayerBehaviour : MonoBehaviour {
 
     //Public links to things outside the script
     public GameObject projectile; //linked projectile prefab
-    public Transform spawnPoint; //Transform of bullet spawner
+	public GameObject projWall;
+	public Transform spawnPoint; //Transform of bullet spawner
     public float speed = 15;
     public Transform myCamera;
+	public int health = 20;
 
     //Public vars for camera movement
     public float rotSpeedY = 20;
@@ -22,23 +24,47 @@ public class PlayerBehaviour : MonoBehaviour {
     private int layer;
 
     // Private vars for weapons
-    private int wepIndex = 1;
+	private int wepIndex = 0;
     private float pistolRoF = 1.0f;
     private float nextShot;
-    private float tmgRoF = 0.3f;
-    [SerializeField]
-    private float tmgAccuracy = 5.0f;
+	private float tmgRoF = 0.15f;
+	[SerializeField] 
+	private float wallRoF = 0.5f;
+
+	private int combo = 0;
+	private bool runTimer = true;
+	private IEnumerator coroutine;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         layer = gameObject.layer;
         nextShot = Time.time;
+		coroutine = upgradeTimer ();
+		StartCoroutine (coroutine);
     }
 
 	// Update is called once per frame
 	void Update ()
     {
+
+		if (runTimer) {
+			StartCoroutine (coroutine);
+		}
+
+		if (Input.GetKey (KeyCode.Alpha1)) {
+			wepIndex = 0;
+			Debug.Log (wepIndex);
+		}
+		if (Input.GetKey (KeyCode.Alpha2) && combo > 0) {
+			wepIndex = 1;
+			Debug.Log (wepIndex);
+		}
+		if (Input.GetKey (KeyCode.Alpha3) && combo > 1) {
+			wepIndex = 2;
+			Debug.Log (wepIndex);
+		}
+
         //shoots if the player tries to shoot
 		if (Input.GetButton ("Fire1")) {
             switch (wepIndex)
@@ -47,12 +73,16 @@ public class PlayerBehaviour : MonoBehaviour {
                     shootPistol();
                     break;
                 case 1:
-                    shootTMG();
+                    shootWalls();
                     break;
+				case 2:
+					shootTMG();
+					break;
                 default:
                     Debug.Log("Somehow didn't have a weapon equipped.. Change weapons!");
                     break;
             }
+
 		}
 
         //Rotation controls
@@ -82,28 +112,54 @@ public class PlayerBehaviour : MonoBehaviour {
     {
         if (Time.time >= nextShot)
         {
-            spawnTMGShot();
-            spawnTMGShot();
-            spawnTMGShot();
-            //Debug.Break();
+			GameObject thisShot;
+			thisShot = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation) as GameObject;
+			thisShot.layer = layer;
             nextShot = Time.time + tmgRoF;
         }
     }
 
-    void spawnTMGShot()
-    {
-        GameObject thisShot;
-        Transform thisSpawn = spawnPoint;
+	void shootWalls()
+	{
+		if (Time.time >= nextShot)
+		{
+			GameObject thisShot;
+			thisShot = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation) as GameObject;
+			thisShot.layer = layer;
 
-        // Adjust spawn transform
-        
-        // Spawn shot
-        thisShot = Instantiate(projectile, thisSpawn.position, thisSpawn.rotation) as GameObject;
-        thisShot.layer = layer;
-    }
+			RaycastHit hit;
+
+			if (Physics.Raycast(spawnPoint.position, spawnPoint.forward, out hit, rb.velocity.magnitude))
+			{
+				Instantiate (projWall, hit.point, spawnPoint.rotation);
+			}
+
+			nextShot = Time.time + wallRoF;
+		}
+	}
+
+	void hit()
+	{
+		StopCoroutine (coroutine);
+		runTimer = true;
+		coroutine = upgradeTimer ();
+		--health;
+		--combo;
+		combo = (combo < 0) ? 0 : combo;
+		wepIndex = (combo < wepIndex) ? combo : wepIndex;
+	}
 
     void FixedUpdate()
     {
         rb.velocity = movement;
     }
+
+	IEnumerator upgradeTimer()
+	{
+		runTimer = false;
+		yield return new WaitForSeconds (15);
+		++combo;
+		runTimer = true;
+		coroutine = upgradeTimer ();
+	}
 }
