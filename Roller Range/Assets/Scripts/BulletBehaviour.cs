@@ -23,7 +23,6 @@ public class BulletBehaviour : MonoBehaviour {
             GameObject hitObject = hit.collider.gameObject;
             if (hitObject.CompareTag("Enemy") || hitObject.CompareTag("Player"))
             {
-                Debug.Log("Calling Hit");
                 hitObject.SendMessage("hit");
                 Destroy(gameObject);
             }

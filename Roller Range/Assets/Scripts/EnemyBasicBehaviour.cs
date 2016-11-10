@@ -94,11 +94,9 @@ public class EnemyBasicBehaviour : MonoBehaviour {
 
     void hit()
     {
-        Debug.Log("This is hit()");
         health = health - 1;
         if (health <= 0)
         {
-            Debug.Log("We dead");
             Destroy(gameObject);
         }
     }
@@ -107,7 +105,6 @@ public class EnemyBasicBehaviour : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Got 'eem!");
             Destroy(gameObject);
         }
         if (other.CompareTag("Bullet"))
@@ -116,7 +113,6 @@ public class EnemyBasicBehaviour : MonoBehaviour {
             health = health - other.gameObject.GetComponent<BulletBehaviour>().dmg;
             if (health <= 0)
             {
-                Debug.Log("We dead");
                 Destroy(gameObject);
             }
         }

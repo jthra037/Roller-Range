@@ -30,7 +30,6 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		Debug.Log ((transform.position - target.position).magnitude);
 		if ((transform.position - target.position).magnitude < 1.0f) {
 			gotEem ();
 		}
@@ -60,8 +59,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     void attack()
     {
         rb.AddForce(transform.forward * attackForce, ForceMode.Impulse);
-		Debug.Log ("Attacking");
-    }
+	}
 
     void hit()
     {
@@ -74,7 +72,6 @@ public class EnemySuicideBehaviour : MonoBehaviour {
 
 	void gotEem()
 	{
-		Debug.Log (gameObject + " is trying to call hit.");
 		target.gameObject.SendMessage ("hit");
 		Destroy(gameObject);
 	}

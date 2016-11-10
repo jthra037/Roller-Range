@@ -123,13 +123,12 @@ public class PlayerBehaviour : MonoBehaviour {
 	{
 		if (Time.time >= nextShot)
 		{
+			RaycastHit hit;
 			GameObject thisShot;
 			thisShot = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation) as GameObject;
 			thisShot.layer = layer;
 
-			RaycastHit hit;
-
-			if (Physics.Raycast(spawnPoint.position, spawnPoint.forward, out hit, rb.velocity.magnitude))
+			if (Physics.Raycast(spawnPoint.position, spawnPoint.forward, out hit, Mathf.Infinity))
 			{
 				Instantiate (projWall, hit.point, spawnPoint.rotation);
 			}
