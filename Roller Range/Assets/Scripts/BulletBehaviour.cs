@@ -21,8 +21,6 @@ public class BulletBehaviour : MonoBehaviour {
         if (Physics.Raycast(transform.position, transform.forward, out hit, rb.velocity.magnitude))
         {
             GameObject hitObject = hit.collider.gameObject;
-            Debug.Log(gameObject.name + " hit " + hit.collider.name);
-            Debug.Log(hitObject.tag);
             if (hitObject.CompareTag("Enemy") || hitObject.CompareTag("Player"))
             {
                 Debug.Log("Calling Hit");
