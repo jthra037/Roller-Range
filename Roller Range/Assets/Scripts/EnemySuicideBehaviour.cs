@@ -18,7 +18,6 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     private NavMeshAgent agent;
     private Transform target;
 
-
 	// Use this for initialization
 	void Start ()
     {
@@ -31,6 +30,10 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+		if ((transform.position - target.position).magnitude < 3.0f) {
+			gotEem ();
+		}
+
         switch (state)
         {
             case 0:
@@ -47,44 +50,20 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     {
         agent.destination = target.position;
         distance = Vector3.Distance(transform.position, target.position); // Check the distance
-        if (distance <= attackDistance)
-        {
-            attack();
-        }
-    }
-
-    void attack()
-    {
-        rb.AddForce(transform.forward * attackForce, ForceMode.Impulse);
     }
 
     void hit()
     {
-        Debug.Log("This is hit, you reached: " + gameObject.name);
         health = health - 1;
         if (health <= 0)
         {
-            Debug.Log("We dead");
             Destroy(gameObject);
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Got 'eem!");
-            Destroy(gameObject);
-        } 
-        /*if (other.CompareTag("Bullet"))
-        {
-            Debug.Log("We been hit!");
-            health = health - other.gameObject.GetComponent<BulletBehaviour>().dmg;
-            if (health <= 0)
-            {
-                Debug.Log("We dead");
-                Destroy(gameObject);
-            }
-        }*/
-    }
+	void gotEem()
+	{
+		target.gameObject.SendMessage ("hit");
+		Destroy(gameObject);
+	}
 }

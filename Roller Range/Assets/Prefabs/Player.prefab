@@ -90,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012097503848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
+  m_LocalPosition: {x: -12.39, y: 1.2, z: 4.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1000013112877364, guid: e3ee9d8c5f6ada241966524eac17ec33, type: 2}
+  projWall: {fileID: 1000010457798338, guid: be421652f4a107a4b83a449fdd4e1515, type: 2}
   spawnPoint: {fileID: 4000012479579984}
   speed: 15
   myCamera: {fileID: 4000011950159332}
@@ -305,6 +306,7 @@ MonoBehaviour:
   yInvert: 0
   minRot: -70
   maxRot: 70
+  wallRoF: 0.5
 --- !u!124 &124000010205310444
 Behaviour:
   m_ObjectHideFlags: 1
