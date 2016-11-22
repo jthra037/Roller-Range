@@ -6,6 +6,10 @@ public class MIRVEnemy : MonoBehaviour {
 	// public Collider attackVolume;
 	public int health = 5;
 	public int state = 0;
+	public GameObject child;
+	public int numChildren = 4;
+	[SerializeField]
+	private float splitForce = 3f;
 
 	[SerializeField]
 	private float attackDistance = 15f;
@@ -106,25 +110,15 @@ public class MIRVEnemy : MonoBehaviour {
 		health = health - 1;
 		if (health <= 0)
 		{
-			Destroy(gameObject);
-		}
-	}
+			for (int i = 0; i < numChildren; ++i) {
+				GameObject thisChild = Instantiate (child, transform.position, transform.rotation) as GameObject;
 
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("Player"))
-		{
-			Destroy(gameObject);
-		}
-		if (other.CompareTag("Bullet"))
-		{
-			Debug.Log("We been hit!");
-			health = health - other.gameObject.GetComponent<BulletBehaviour>().dmg;
-			if (health <= 0)
-			{
-				Destroy(gameObject);
+				Rigidbody childRB = thisChild.GetComponent<Rigidbody> ();
+
+				childRB.AddForce (new Vector3 (Random.value * splitForce, splitForce, Random.value * splitForce), ForceMode.Impulse);
 			}
+
+			Destroy (gameObject);
 		}
 	}
-
 }

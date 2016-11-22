@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackVolume: {fileID: 0}
-  health: 2
+  health: 1
   state: 0
   attackDistance: 5
   attackForce: 100

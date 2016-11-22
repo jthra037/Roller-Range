@@ -75,9 +75,10 @@ GameObject:
   - 23: {fileID: 23000010661219158}
   - 195: {fileID: 195000013902883472}
   - 114: {fileID: 114000012372716696}
+  - 65: {fileID: 65000011299869138}
   m_Layer: 0
   m_Name: MIRVBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,6 +287,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65000011299869138
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013405571038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 1, z: 12}
+  m_Center: {x: 0, y: 0, z: 4}
 --- !u!65 &65000013014341918
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -323,6 +336,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   state: 0
+  child: {fileID: 1000010634576972, guid: fe1fb09b59e6d374e9de079691d2a562, type: 2}
+  numChildren: 4
+  splitForce: 5
   attackDistance: 15
   fireRate: 1.5
   projectile: {fileID: 1000013112877364, guid: e3ee9d8c5f6ada241966524eac17ec33, type: 2}

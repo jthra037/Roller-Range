@@ -146,6 +146,8 @@ public class PlayerBehaviour : MonoBehaviour {
 		--combo;
 		combo = (combo < 0) ? 0 : combo;
 		wepIndex = (combo < wepIndex) ? combo : wepIndex;
+		Debug.Log ("Player hit");
+		Debug.Log ("Player health at: " + health);
 	}
 
     void FixedUpdate()

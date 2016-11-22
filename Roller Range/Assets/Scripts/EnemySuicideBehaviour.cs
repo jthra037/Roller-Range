@@ -30,7 +30,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		if ((transform.position - target.position).magnitude < 1.0f) {
+		if ((transform.position - target.position).magnitude < 3.0f) {
 			gotEem ();
 		}
 
@@ -50,16 +50,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     {
         agent.destination = target.position;
         distance = Vector3.Distance(transform.position, target.position); // Check the distance
-        if (distance <= attackDistance)
-        {
-            attack();
-        }
     }
-
-    void attack()
-    {
-        rb.AddForce(transform.forward * attackForce, ForceMode.Impulse);
-	}
 
     void hit()
     {
