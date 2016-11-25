@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerBehaviour : MonoBehaviour {
@@ -10,6 +11,10 @@ public class PlayerBehaviour : MonoBehaviour {
     public float speed = 15;
     public Transform myCamera;
 	public int health = 20;
+    public Image healthBar;
+    public Image wepBar;
+    public Text scoreTxt;
+    public Text wepText;
 
     //Public vars for camera movement
     public float rotSpeedY = 20;
@@ -35,13 +40,23 @@ public class PlayerBehaviour : MonoBehaviour {
 	private bool runTimer = true;
 	private IEnumerator coroutine;
 
+    // Stuff for the UI
+    private int maxHealth;
+    private float maxWidth;
+    private int score = 0;
+    private int upgradeTime;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         layer = gameObject.layer;
         nextShot = Time.time;
+        upgradeTime = 15;
 		coroutine = upgradeTimer ();
 		StartCoroutine (coroutine);
+
+        maxHealth = health;
+        //maxWidth = healthBar.gameObject.GetComponent<RectTransform>().rect.width;
     }
 
 	// Update is called once per frame
@@ -145,10 +160,12 @@ public class PlayerBehaviour : MonoBehaviour {
 		--health;
 		--combo;
 		combo = (combo < 0) ? 0 : combo;
-		wepIndex = (combo < wepIndex) ? combo : wepIndex;
-		Debug.Log ("Player hit");
-		Debug.Log ("Player health at: " + health);
-	}
+        wepText.text = "Weapon points: " + combo.ToString();
+        wepIndex = (combo < wepIndex) ? combo : wepIndex;
+        //float newWidth = ((float)health / maxHealth) * maxWidth;
+        float newWidth = ((float)health / maxHealth);
+        healthBar.fillAmount = newWidth;
+    }
 
     void FixedUpdate()
     {
@@ -158,8 +175,15 @@ public class PlayerBehaviour : MonoBehaviour {
 	IEnumerator upgradeTimer()
 	{
 		runTimer = false;
-		yield return new WaitForSeconds (15);
-		++combo;
+        for (int i = 0; i < upgradeTime; ++i)
+        {
+            wepBar.fillAmount = (float)i / upgradeTime;
+            yield return new WaitForSeconds(1);
+        }
+        ++combo;
+        ++score;
+        wepText.text = "Weapon points: " + combo.ToString();
+        scoreTxt.text = score.ToString();
 		runTimer = true;
 		coroutine = upgradeTimer ();
 	}

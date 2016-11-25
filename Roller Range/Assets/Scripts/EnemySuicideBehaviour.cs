@@ -8,10 +8,10 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     public int health = 2;
     public int state = 1;
 
-    [SerializeField]
+    /*[SerializeField]
     private float attackDistance = 5;
     [SerializeField]
-    private float attackForce = 100;
+    private float attackForce = 100;*/
 	[SerializeField]
 	private float chaseSpeed = 16f;
 	[SerializeField]
@@ -20,6 +20,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
 	private float wanderCircRad = 3f;
 	[SerializeField]
 	private float wanderSpeed = 5f;
+
 
     //private int layer;
     private float distance;
@@ -61,7 +62,6 @@ public class EnemySuicideBehaviour : MonoBehaviour {
 
 	void wander()
 	{
-		Debug.Log ("Wandering!");
 		agent.speed = wanderSpeed;
 		Vector3 offset = new Vector3 (Random.value, 0, Random.value);
 		offset = offset.normalized * wanderCircRad;
@@ -99,9 +99,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
 			other.SendMessage ("helpChase");
 		}
 
-		Debug.Log (other.tag);
 		if ((state == 2) && other.CompareTag ("Player")) {
-			Debug.Log ("Player spotted!");
 			state = 0;
 		}
 	}

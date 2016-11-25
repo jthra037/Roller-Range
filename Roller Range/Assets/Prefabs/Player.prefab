@@ -301,6 +301,10 @@ MonoBehaviour:
   spawnPoint: {fileID: 4000012479579984}
   speed: 15
   myCamera: {fileID: 4000011950159332}
+  health: 20
+  healthBar: {fileID: 0}
+  wepBar: {fileID: 0}
+  scoreTxt: {fileID: 0}
   rotSpeedY: 60
   rotSpeedX: 80
   yInvert: 0
