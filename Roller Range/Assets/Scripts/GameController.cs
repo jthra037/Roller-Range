@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
 	private Spawner[] spawnPoints;
 	private int spawnIndex;
 	private Transform player;
-	private int level = 0;
+	private int level = 1;
 
 	[SerializeField]
 	private List<GameObject> creepPrefabs = new List<GameObject>(3);
@@ -22,15 +22,13 @@ public class GameController : MonoBehaviour {
 		StartCoroutine (levelTimer ());
 		StartCoroutine (spawning ());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	int getPrefab()
+	int getPrefabIndex()
 	{
-		return 0;
+		int tempIndex = (int)Random.value * 100;
+		tempIndex = (tempIndex % level) % creepPrefabs.Count;
+
+		return tempIndex;
 	}
 
 	IEnumerator levelTimer()
@@ -50,9 +48,12 @@ public class GameController : MonoBehaviour {
 			while (spawnPoints [spawnIndex].canSeePlayer) {
 				spawnIndex = ++spawnIndex % spawnPoints.Length;
 			}
+				
+			prefabIndex = getPrefabIndex();
+			float prefabHeight = creepPrefabs [prefabIndex].transform.localScale.y;
+			Vector3 offset = new Vector3 (0, prefabHeight / 2, 0);
 
-
-			prefabIndex = getPrefab();
+			spawnPoints [spawnIndex].spawn (creepPrefabs [prefabIndex], offset);
 			yield return new WaitForSeconds(spawnRate);
 		}
 	}
