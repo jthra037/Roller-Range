@@ -110,7 +110,6 @@ public class EnemyBasicBehaviour : MonoBehaviour {
 
 	void wander()
 	{
-		Debug.Log ("Wandering!");
 		agent.speed = wanderSpeed;
 		Vector3 offset = new Vector3 (Random.value, 0, Random.value);
 		offset = offset.normalized * wanderCircRad;
@@ -134,7 +133,6 @@ public class EnemyBasicBehaviour : MonoBehaviour {
 		}
 
 		if ((state == 2) && other.CompareTag ("Player")) {
-			Debug.Log ("Player spotted!");
 			state = 0;
 		}
     }

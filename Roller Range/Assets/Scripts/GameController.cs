@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 	public bool running = true;
 	public float spawnRate = 3f;
+    public Image levelBar;
+    public Text levelText;
+    public int level = 1;
 
-	private Spawner[] spawnPoints;
+    private Spawner[] spawnPoints;
 	private int spawnIndex;
 	private Transform player;
-	private int level = 1;
+
+    private int levelTime = 15;
 
 	[SerializeField]
 	private List<GameObject> creepPrefabs = new List<GameObject>(3);
@@ -25,7 +30,7 @@ public class GameController : MonoBehaviour {
 
 	int getPrefabIndex()
 	{
-		int tempIndex = (int)Random.value * 100;
+		int tempIndex = (int)(Random.value * 100);
 		tempIndex = (tempIndex % level) % creepPrefabs.Count;
 
 		return tempIndex;
@@ -34,8 +39,13 @@ public class GameController : MonoBehaviour {
 	IEnumerator levelTimer()
 	{
 		while (running) {
-			yield return new WaitForSeconds (15);
-			++level;
+            for (int i = 0; i < levelTime; ++i)
+            {
+                levelBar.fillAmount = (float)i / levelTime;
+                yield return new WaitForSeconds(1);
+            }
+            ++level;
+            levelText.text = "Current level: " + level.ToString();
 		}
 	}
 
