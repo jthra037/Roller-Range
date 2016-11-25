@@ -242,11 +242,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  state: 0
+  state: 2
   attackDistance: 20
   fireRate: 2
   projectile: {fileID: 1000013112877364, guid: e3ee9d8c5f6ada241966524eac17ec33, type: 2}
   spawnPoint: {fileID: 4000012377927124}
+  wanderSpeed: 5
+  chaseSpeed: 10
+  wanderCircPos: 10
+  wanderCircRad: 3
 --- !u!195 &195000012780831058
 NavMeshAgent:
   m_ObjectHideFlags: 1
