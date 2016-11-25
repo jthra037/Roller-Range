@@ -43,6 +43,7 @@ GameObject:
   - 54: {fileID: 54000012176436082}
   - 195: {fileID: 195000012780831058}
   - 114: {fileID: 114000012447472662}
+  - 65: {fileID: 65000013842113374}
   m_Layer: 9
   m_Name: BasicEnemy
   m_TagString: Enemy
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010224266576}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.767422, y: 1.21, z: 3.3782604}
+  m_LocalPosition: {x: 10.121752, y: 1.1, z: 4.5943623}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -217,6 +218,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65000013842113374
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010224266576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 0, z: 50}
+  m_Center: {x: 0, y: 0, z: 15}
 --- !u!114 &114000012447472662
 MonoBehaviour:
   m_ObjectHideFlags: 1
