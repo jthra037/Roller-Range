@@ -17,13 +17,13 @@ public class EnemyBasicBehaviour : MonoBehaviour {
     [SerializeField]
     private Transform spawnPoint;
 	[SerializeField]
-	private float wanderSpeed = 5f;
-	[SerializeField]
 	private float chaseSpeed = 10f;
 	[SerializeField]
 	private float wanderCircPos = 10f;
 	[SerializeField]
 	private float wanderCircRad = 3f;
+	[SerializeField]
+	private float wanderSpeed = 5f;
 
     private int layer;
     private float tolerance = 0.1f;
@@ -53,19 +53,6 @@ public class EnemyBasicBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        /*switch (state)
-        {
-            case 0:
-                chase();
-                break;
-            case 1:
-                seperation();
-                break;
-            default:
-                agent.destination = transform.position;
-                Debug.Log("Wander isn't implemented yet!");
-                break;
-        }*/
 		actions [state] ();
     }
 
@@ -110,15 +97,6 @@ public class EnemyBasicBehaviour : MonoBehaviour {
         }
     }
 
-	void wander()
-	{
-		Debug.Log ("Wandering!");
-		agent.speed = wanderSpeed;
-		Vector3 offset = new Vector3 (Random.value, 0, Random.value);
-		offset = offset.normalized * wanderCircRad;
-		agent.destination = transform.position + (transform.forward * wanderCircPos) + offset;
-	}
-
     void hit()
     {
         health = health - 1;
@@ -129,6 +107,15 @@ public class EnemyBasicBehaviour : MonoBehaviour {
 
 		transform.LookAt (target.transform);
     }
+
+	void wander()
+	{
+		Debug.Log ("Wandering!");
+		agent.speed = wanderSpeed;
+		Vector3 offset = new Vector3 (Random.value, 0, Random.value);
+		offset = offset.normalized * wanderCircRad;
+		agent.destination = transform.position + (transform.forward * wanderCircPos) + offset;
+	}
 
 	void nothing()
 	{
