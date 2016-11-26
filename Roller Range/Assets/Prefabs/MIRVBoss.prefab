@@ -76,7 +76,7 @@ GameObject:
   - 195: {fileID: 195000013902883472}
   - 114: {fileID: 114000012372716696}
   - 65: {fileID: 65000011299869138}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MIRVBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  state: 0
+  state: 2
   child: {fileID: 1000010634576972, guid: fe1fb09b59e6d374e9de079691d2a562, type: 2}
   numChildren: 4
   splitForce: 5
@@ -344,6 +344,10 @@ MonoBehaviour:
   projectile: {fileID: 1000013112877364, guid: e3ee9d8c5f6ada241966524eac17ec33, type: 2}
   spawnPoint: {fileID: 4000010932828362}
   spawnPoint2: {fileID: 4000011093373398}
+  chaseSpeed: 10
+  wanderCircPos: 10
+  wanderCircRad: 3
+  wanderSpeed: 5
 --- !u!195 &195000013902883472
 NavMeshAgent:
   m_ObjectHideFlags: 1

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerBehaviour : MonoBehaviour {
@@ -9,7 +10,11 @@ public class PlayerBehaviour : MonoBehaviour {
 	public Transform spawnPoint; //Transform of bullet spawner
     public float speed = 15;
     public Transform myCamera;
-	public int health = 20;
+	private int health = 20;
+    public Image healthBar;
+    public Image wepBar;
+    public Text scoreTxt;
+    public Text wepText;
 
     //Public vars for camera movement
     public float rotSpeedY = 20;
@@ -35,18 +40,33 @@ public class PlayerBehaviour : MonoBehaviour {
 	private bool runTimer = true;
 	private IEnumerator coroutine;
 
+    // Stuff for the UI
+    private int maxHealth;
+    private float maxWidth;
+    public int score = 0;
+    private int upgradeTime;
+    public bool dead = false;
+
+    private GameController GC;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        GC = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         layer = gameObject.layer;
         nextShot = Time.time;
+        upgradeTime = 15;
 		coroutine = upgradeTimer ();
 		StartCoroutine (coroutine);
+
+        maxHealth = health;
     }
 
 	// Update is called once per frame
 	void Update ()
     {
+        if (dead)
+            return;
 
 		if (runTimer) {
 			StartCoroutine (coroutine);
@@ -54,15 +74,12 @@ public class PlayerBehaviour : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.Alpha1)) {
 			wepIndex = 0;
-			Debug.Log (wepIndex);
 		}
 		if (Input.GetKey (KeyCode.Alpha2) && combo > 0) {
 			wepIndex = 1;
-			Debug.Log (wepIndex);
 		}
 		if (Input.GetKey (KeyCode.Alpha3) && combo > 1) {
 			wepIndex = 2;
-			Debug.Log (wepIndex);
 		}
 
         //shoots if the player tries to shoot
@@ -144,10 +161,14 @@ public class PlayerBehaviour : MonoBehaviour {
 		--health;
 		--combo;
 		combo = (combo < 0) ? 0 : combo;
-		wepIndex = (combo < wepIndex) ? combo : wepIndex;
-		Debug.Log ("Player hit");
-		Debug.Log ("Player health at: " + health);
-	}
+        wepText.text = "Weapon points: " + combo.ToString();
+        wepIndex = (combo < wepIndex) ? combo : wepIndex;
+        //float newWidth = ((float)health / maxHealth) * maxWidth;
+        float newWidth = ((float)health / maxHealth);
+        healthBar.fillAmount = newWidth;
+        if (health <= 0)
+            dead = true;
+    }
 
     void FixedUpdate()
     {
@@ -157,8 +178,16 @@ public class PlayerBehaviour : MonoBehaviour {
 	IEnumerator upgradeTimer()
 	{
 		runTimer = false;
-		yield return new WaitForSeconds (15);
-		++combo;
+        for (int i = 0; i < upgradeTime; ++i)
+        {
+            wepBar.fillAmount = (float)i / upgradeTime;
+            yield return new WaitForSeconds(1);
+        }
+        ++combo;
+        GC.gotCombo();
+        ++score;
+        wepText.text = "Weapon points: " + combo.ToString();
+        scoreTxt.text = score.ToString();
 		runTimer = true;
 		coroutine = upgradeTimer ();
 	}
