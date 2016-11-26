@@ -140,11 +140,14 @@ public class MIRVEnemy : MonoBehaviour {
 				Rigidbody childRB = thisChild.GetComponent<Rigidbody> ();
 
 				childRB.AddForce (new Vector3 (Random.value * splitForce, splitForce, Random.value * splitForce), ForceMode.Impulse);
+                thisChild.GetComponent<EnemySuicideBehaviour>().state = 0;
 			}
 
             GC.iDied(5);
 			Destroy (gameObject);
 		}
+
+        state = 0;
 	}
 
 	void OnTriggerEnter(Collider other)

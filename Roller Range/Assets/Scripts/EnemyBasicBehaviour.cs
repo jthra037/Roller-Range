@@ -108,7 +108,7 @@ public class EnemyBasicBehaviour : MonoBehaviour {
             Destroy(gameObject);
         }
 
-		transform.LookAt (target.transform);
+        state = 0;
     }
 
 	void wander()

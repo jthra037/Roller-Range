@@ -74,13 +74,16 @@ public class PlayerBehaviour : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.Alpha1)) {
 			wepIndex = 0;
-		}
+            wepText.text = "Weapon Equipped: " + (wepIndex + 1).ToString();
+        }
 		if (Input.GetKey (KeyCode.Alpha2) && combo > 0) {
 			wepIndex = 1;
-		}
+            wepText.text = "Weapon Equipped: " + (wepIndex + 1).ToString();
+        }
 		if (Input.GetKey (KeyCode.Alpha3) && combo > 1) {
 			wepIndex = 2;
-		}
+            wepText.text = "Weapon Equipped: " + (wepIndex + 1).ToString();
+        }
 
         //shoots if the player tries to shoot
 		if (Input.GetButton ("Fire1")) {
@@ -162,8 +165,8 @@ public class PlayerBehaviour : MonoBehaviour {
 		--health;
 		--combo;
 		combo = (combo < 0) ? 0 : combo;
-        wepText.text = "Weapon points: " + combo.ToString();
         wepIndex = (combo < wepIndex) ? combo : wepIndex;
+        wepText.text = "Weapon Equipped: " + (wepIndex + 1).ToString();
         //float newWidth = ((float)health / maxHealth) * maxWidth;
         float newWidth = ((float)health / maxHealth);
         healthBar.fillAmount = newWidth;
@@ -178,17 +181,22 @@ public class PlayerBehaviour : MonoBehaviour {
 
 	IEnumerator upgradeTimer()
 	{
+        Vector3 startPos = transform.position;
 		runTimer = false;
         for (int i = 0; i < upgradeTime; ++i)
         {
             wepBar.fillAmount = (float)i / upgradeTime;
             yield return new WaitForSeconds(1);
         }
+        if (((transform.position - startPos).magnitude < 1) && (rb.velocity.magnitude < 0.2))
+        {
+            Debug.Log("Are you cheating?");
+            yield break;
+        }
         ++combo;
         GC.gotCombo();
-        ++score;
-        wepText.text = "Weapon points: " + combo.ToString();
-        scoreTxt.text = score.ToString();
+        wepText.text = "Weapon Equipped: " + (wepIndex + 1).ToString();
+        scoreTxt.text = combo.ToString();
 		runTimer = true;
 		coroutine = upgradeTimer ();
 	}
