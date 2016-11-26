@@ -43,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour {
     // Stuff for the UI
     private int maxHealth;
     private float maxWidth;
-    private int score = 0;
+    public int score = 0;
     private int upgradeTime;
 
     void Start()

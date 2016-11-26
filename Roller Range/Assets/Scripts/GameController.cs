@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,6 +9,7 @@ public class GameController : MonoBehaviour {
 	public float spawnRate = 3f;
     public Image levelBar;
     public Text levelText;
+    public Text finalScore;
     public int level = 1;
 
     private Spawner[] spawnPoints;
@@ -18,6 +20,8 @@ public class GameController : MonoBehaviour {
 
 	[SerializeField]
 	private List<GameObject> creepPrefabs = new List<GameObject>(3);
+    [SerializeField]
+    private SceneDirector myDirector;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +31,18 @@ public class GameController : MonoBehaviour {
 		StartCoroutine (levelTimer ());
 		StartCoroutine (spawning ());
 	}
+
+    void Update()
+    {
+        if (player.gameObject.GetComponent<PlayerBehaviour>().health <= 0)
+        {
+            int score = player.gameObject.GetComponent<PlayerBehaviour>().score;
+            score *= level;
+            Destroy(player.gameObject.GetComponent<PlayerBehaviour>());
+            finalScore.text = "Final score: " + score.ToString();
+            StartCoroutine(gameOver());
+        }
+    }
 
 	int getPrefabIndex()
 	{
@@ -67,4 +83,10 @@ public class GameController : MonoBehaviour {
 			yield return new WaitForSeconds(spawnRate);
 		}
 	}
+
+    IEnumerator gameOver()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("GameOver");
+    }
 }
