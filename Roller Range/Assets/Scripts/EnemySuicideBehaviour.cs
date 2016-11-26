@@ -27,6 +27,10 @@ public class EnemySuicideBehaviour : MonoBehaviour {
     private Rigidbody rb;
     private NavMeshAgent agent;
     private Transform target;
+    private GameController GC;
+
+    private Vector3 myOffset;
+    private Vector3 myDestination;
 
 	Dictionary<int, System.Action> actions = new Dictionary<int, System.Action> ();
 
@@ -36,6 +40,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform; // Locate the player
+        GC = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         //layer = gameObject.layer;
 
 		actions.Add (0, chase);
@@ -63,9 +68,11 @@ public class EnemySuicideBehaviour : MonoBehaviour {
 	void wander()
 	{
 		agent.speed = wanderSpeed;
-		Vector3 offset = new Vector3 (Random.value, 0, Random.value);
+		Vector3 offset = new Vector3 (Random.value - 0.5f, 0, Random.value - 0.5f);
 		offset = offset.normalized * wanderCircRad;
-		agent.destination = transform.position + (transform.forward * wanderCircPos) + offset;
+        myOffset = offset;/// FOR DEBUGGING
+        agent.destination = transform.position + (transform.forward * wanderCircPos) + offset;
+        myDestination = agent.destination; ///ALSO FOR DEBUGGING
 	}
 
 	void nothing()
@@ -83,6 +90,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
         health = health - 1;
         if (health <= 0)
         {
+            GC.iDied(1);
             Destroy(gameObject);
         }
     }
@@ -90,7 +98,7 @@ public class EnemySuicideBehaviour : MonoBehaviour {
 	void gotEem()
 	{
 		target.gameObject.SendMessage ("hit");
-		Destroy(gameObject);
+		DestroyImmediate(gameObject);
 	}
 
 	void OnTriggerEnter(Collider other)

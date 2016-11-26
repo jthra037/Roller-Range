@@ -652,6 +652,15 @@ Prefab:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 687179281}
+    - target: {fileID: 114000010130429374, guid: 20a8624b2e47ed649972810d50d873ac,
+        type: 2}
+      propertyPath: finalScore
+      value: 
+      objectReference: {fileID: 798733822}
+    - target: {fileID: 1000013715421352, guid: 20a8624b2e47ed649972810d50d873ac, type: 2}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20a8624b2e47ed649972810d50d873ac, type: 2}
   m_IsPrefabParent: 0
@@ -2004,7 +2013,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

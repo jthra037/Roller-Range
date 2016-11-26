@@ -32,6 +32,7 @@ public class EnemyBasicBehaviour : MonoBehaviour {
     //private Rigidbody rb;
     private NavMeshAgent agent;
     private Transform target;
+    private GameController GC;
 
 	Dictionary<int, System.Action> actions = new Dictionary<int, System.Action> ();
 
@@ -42,6 +43,7 @@ public class EnemyBasicBehaviour : MonoBehaviour {
         //rb = gameObject.GetComponent<Rigidbody>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform; // Locate the player
+        GC = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         layer = gameObject.layer;
 
 		actions.Add (0, chase);
@@ -102,6 +104,7 @@ public class EnemyBasicBehaviour : MonoBehaviour {
         health = health - 1;
         if (health <= 0)
         {
+            GC.iDied(3);
             Destroy(gameObject);
         }
 
@@ -111,7 +114,7 @@ public class EnemyBasicBehaviour : MonoBehaviour {
 	void wander()
 	{
 		agent.speed = wanderSpeed;
-		Vector3 offset = new Vector3 (Random.value, 0, Random.value);
+		Vector3 offset = new Vector3 (Random.value - 0.5f, 0, Random.value - 0.5f);
 		offset = offset.normalized * wanderCircRad;
 		agent.destination = transform.position + (transform.forward * wanderCircPos) + offset;
 	}

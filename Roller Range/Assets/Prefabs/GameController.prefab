@@ -102,7 +102,7 @@ GameObject:
   - 114: {fileID: 114000010130429374}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,6 +275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   running: 1
   spawnRate: 3
+  levelBar: {fileID: 0}
+  levelText: {fileID: 0}
+  finalScore: {fileID: 0}
+  level: 1
   creepPrefabs:
   - {fileID: 1000010634576972, guid: fe1fb09b59e6d374e9de079691d2a562, type: 2}
   - {fileID: 1000010224266576, guid: fa1cd5834da7af04eaaf100d56022fe7, type: 2}

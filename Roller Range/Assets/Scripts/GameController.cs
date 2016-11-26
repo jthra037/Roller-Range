@@ -9,19 +9,19 @@ public class GameController : MonoBehaviour {
 	public float spawnRate = 3f;
     public Image levelBar;
     public Text levelText;
+    private int gameScore = 0;
     public Text finalScore;
     public int level = 1;
 
     private Spawner[] spawnPoints;
 	private int spawnIndex;
 	private Transform player;
+    private bool playerExists = true;
 
     private int levelTime = 15;
 
 	[SerializeField]
 	private List<GameObject> creepPrefabs = new List<GameObject>(3);
-    [SerializeField]
-    private SceneDirector myDirector;
 
 	// Use this for initialization
 	void Start () {
@@ -34,13 +34,14 @@ public class GameController : MonoBehaviour {
 
     void Update()
     {
-        if (player.gameObject.GetComponent<PlayerBehaviour>().health <= 0)
+        if (playerExists && player.gameObject.GetComponent<PlayerBehaviour>().dead)
         {
             int score = player.gameObject.GetComponent<PlayerBehaviour>().score;
             score *= level;
-            Destroy(player.gameObject.GetComponent<PlayerBehaviour>());
-            finalScore.text = "Final score: " + score.ToString();
+            finalScore.text = "Final score: " + gameScore.ToString();
             StartCoroutine(gameOver());
+            playerExists = false;
+            Destroy(player.gameObject.GetComponent<PlayerBehaviour>());
         }
     }
 
@@ -51,6 +52,16 @@ public class GameController : MonoBehaviour {
 
 		return tempIndex;
 	}
+
+    public void gotCombo()
+    {
+        gameScore += 100 * level;
+    }
+
+    public void iDied(int points)
+    {
+        gameScore += points * level;
+    }
 
 	IEnumerator levelTimer()
 	{

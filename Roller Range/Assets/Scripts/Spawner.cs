@@ -5,10 +5,12 @@ public class Spawner : MonoBehaviour {
 	public bool canSeePlayer = false;
 
 	private Transform target;
+    private GameController GC;
 
 	void Start()
 	{
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
+        GC = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 	}
 
 	void Update()
@@ -33,6 +35,6 @@ public class Spawner : MonoBehaviour {
 
 	public void spawn(GameObject prefab, Vector3 localOffset)
 	{
-		Instantiate (prefab, transform.position + localOffset, transform.rotation);
+        Instantiate(prefab, transform.position + localOffset, transform.rotation);
 	}
 }

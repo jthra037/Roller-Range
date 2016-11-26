@@ -4,6 +4,7 @@ using System.Collections;
 public class BulletBehaviour : MonoBehaviour {
 
     public int dmg = 1;
+    public bool logHits = false;
 
     private Rigidbody rb;
     private RaycastHit hit;
@@ -23,6 +24,8 @@ public class BulletBehaviour : MonoBehaviour {
             GameObject hitObject = hit.collider.gameObject;
             if (hitObject.CompareTag("Enemy") || hitObject.CompareTag("Player"))
             {
+                if (logHits)
+                    Debug.Log(hitObject);
                 hitObject.SendMessage("hit");
                 Destroy(gameObject);
             }

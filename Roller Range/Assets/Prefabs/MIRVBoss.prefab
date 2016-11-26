@@ -76,7 +76,7 @@ GameObject:
   - 195: {fileID: 195000013902883472}
   - 114: {fileID: 114000012372716696}
   - 65: {fileID: 65000011299869138}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MIRVBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
