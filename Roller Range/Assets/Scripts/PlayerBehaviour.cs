@@ -165,6 +165,7 @@ public class PlayerBehaviour : MonoBehaviour {
 		--health;
 		--combo;
 		combo = (combo < 0) ? 0 : combo;
+        scoreTxt.text = combo.ToString();
         wepIndex = (combo < wepIndex) ? combo : wepIndex;
         wepText.text = "Weapon Equipped: " + (wepIndex + 1).ToString();
         //float newWidth = ((float)health / maxHealth) * maxWidth;
