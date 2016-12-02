@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		spawnPoints = transform.GetComponentsInChildren<Spawner> ();
