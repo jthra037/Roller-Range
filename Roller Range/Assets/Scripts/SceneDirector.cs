@@ -3,6 +3,12 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SceneDirector : MonoBehaviour {
+	void Start()
+	{
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.Confined;
+	}
+
     void goToGame()
     {
         SceneManager.LoadScene("main");

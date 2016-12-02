@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
     private int gameScore = 0;
     public Text finalScore;
     public int level = 1;
+    public int levelCap = 5;
 
     private Spawner[] spawnPoints;
 	private int spawnIndex;
@@ -25,6 +26,9 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
+
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		spawnPoints = transform.GetComponentsInChildren<Spawner> ();
 
@@ -91,6 +95,11 @@ public class GameController : MonoBehaviour {
 			Vector3 offset = new Vector3 (0, prefabHeight / 2, 0);
 
 			spawnPoints [spawnIndex].spawn (creepPrefabs [prefabIndex], offset);
+            if (level > levelCap)
+            {
+                levelCap += 5;
+                spawnRate *= 0.66f;
+            }
 			yield return new WaitForSeconds(spawnRate);
 		}
 	}
