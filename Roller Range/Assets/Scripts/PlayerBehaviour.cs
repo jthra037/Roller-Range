@@ -47,7 +47,11 @@ public class PlayerBehaviour : MonoBehaviour {
     private int upgradeTime;
     public bool dead = false;
 
+	// Make the game run
     private GameController GC;
+
+	// Don't cheat!
+	private float maxHeight;
 
     void Start()
     {
@@ -60,13 +64,16 @@ public class PlayerBehaviour : MonoBehaviour {
 		StartCoroutine (coroutine);
 
         maxHealth = health;
+		maxHeight = transform.position.y + 1f;
     }
 
 	// Update is called once per frame
 	void Update ()
     {
-        if (dead)
-            return;
+		if (dead) {
+			rb.velocity = Vector3.zero;
+			return;
+		}
 
 		if (runTimer) {
 			StartCoroutine (coroutine);
@@ -194,6 +201,10 @@ public class PlayerBehaviour : MonoBehaviour {
             Debug.Log("Are you cheating?");
             yield break;
         }
+		if (transform.position.y > maxHeight) {
+			dead = true;
+			yield break;
+		}
         ++combo;
         GC.gotCombo();
         wepText.text = "Weapon Equipped: " + (wepIndex + 1).ToString();
