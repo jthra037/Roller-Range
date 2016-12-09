@@ -1,0 +1,395 @@
+fileFormatVersion: 2
+guid: 2dff36112d196cd4db07a845a6a9b843
+timeCreated: 1481247939
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WKTemplate3_0
+    21300002: WKTemplate3_1
+    21300004: WKTemplate3_2
+    21300006: WKTemplate3_3
+    21300008: WKTemplate3_4
+    21300010: WKTemplate3_5
+    21300012: WKTemplate3_6
+    21300014: WKTemplate3_7
+    21300016: WKTemplate3_8
+    21300018: WKTemplate3_9
+    21300020: WKTemplate3_10
+    21300022: WKTemplate3_11
+    21300024: WKTemplate3_12
+    21300026: WKTemplate3_15
+    21300028: WKTemplate3_16
+    21300030: WKTemplate3_17
+    21300032: WKTemplate3_18
+    21300034: WKTemplate3_19
+    21300036: WKTemplate3_20
+    21300038: WKTemplate3_21
+    21300040: WKTemplate3_22
+    21300042: WKTemplate3_23
+    21300044: WKTemplate3_24
+    21300046: WKTemplate3_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 450
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WKTemplate3_0
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 2975
+        width: 332
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_1
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 2975
+        width: 304
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_2
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 2980
+        width: 314
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_3
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 2975
+        width: 304
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 2488
+        width: 323
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_5
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 2488
+        width: 323
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_6
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 2027
+        width: 323
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_7
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 2027
+        width: 312
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_8
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 1756
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_9
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1515
+        width: 312
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_10
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 1515
+        width: 344
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_11
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 1515
+        width: 322
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_12
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 1504
+        width: 428
+        height: 444
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_15
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 778
+        width: 384
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_16
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 716
+        width: 874
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_17
+      rect:
+        serializedVersion: 2
+        x: 2396
+        y: 534
+        width: 459
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_18
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 741
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_19
+      rect:
+        serializedVersion: 2
+        x: 2358
+        y: 729
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_20
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 176
+        width: 459
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_21
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 250
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_22
+      rect:
+        serializedVersion: 2
+        x: 2006
+        y: 178
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_23
+      rect:
+        serializedVersion: 2
+        x: 2269
+        y: 176
+        width: 180
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_24
+      rect:
+        serializedVersion: 2
+        x: 2508
+        y: 176
+        width: 88
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WKTemplate3_25
+      rect:
+        serializedVersion: 2
+        x: 2663
+        y: 176
+        width: 137
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
