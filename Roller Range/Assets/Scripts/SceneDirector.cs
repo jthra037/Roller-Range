@@ -19,6 +19,11 @@ public class SceneDirector : MonoBehaviour {
         SceneManager.LoadScene("MainMenu");
     }
 
+    void goToCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     void quitGame()
     {
         Application.Quit();
